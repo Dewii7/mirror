@@ -4,10 +4,10 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
   TouchableOpacity,
+  Image,
 } from 'react-native';
-import {Input} from 'react-native-elements/dist/input/Input';
+import {Input} from 'react-native-elements';
 import {moderateScale} from 'react-native-size-matters';
 import AuthButton from '../../Component/AuthButton';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
@@ -19,39 +19,38 @@ export default function Login(props) {
   };
   return (
     <SafeAreaView>
-      <View style={styles.container}>
+      <View style={styles.RR}>
         <Image
-          source={{
-            uri: 'https://pbs.twimg.com/media/E8-eC05VUAQaId5?format=png&name=orig',
-          }}
+          source={require('../../Assets/Images/logomirrorRЯ.png')}
+          resizeMode={'center'}
+        />
+      </View>
+
+      <View>
+        <Input
+          containerStyle={styles.emailHolder}
+          inputContainerStyle={styles.emailHolder1}
+          // onChangeText={text => setEmail(text)}
+          placeholder="Email"
+          style={styles.emailHolder2}
         />
 
-        <View>
-          <Input
-            containerStyle={styles.emailHolder}
-            inputContainerStyle={styles.emailHolder1}
-            // onChangeText={text => setEmail(text)}
-            placeholder="Phone number, username or email"
-            style={styles.emailHolder2}
-          />
+        <Input
+          containerStyle={styles.passHolder}
+          inputContainerStyle={styles.passHolder1}
+          // onChangeText={text => setEmail(text)}
+          placeholder="Password"
+          style={styles.passHolder2}
+        />
 
-          <Input
-            containerStyle={styles.passHolder}
-            inputContainerStyle={styles.passHolder1}
-            // onChangeText={text => setEmail(text)}
-            placeholder="Password"
-            style={styles.passHolder2}
-          />
+        <AuthButton center submit={keHome} full judul="Log In" />
 
-          <AuthButton center submit={keHome} full judul="Log In" />
+        <View style={styles.signUpContainer}>
+          <Text style={styles.logIn}>Don't have an account?</Text>
 
-          <View style={styles.signUpContainer}>
-            <Text style={styles.logIn}>Don't have an account?</Text>
-
-            <TouchableOpacity>
-              <Text style={styles.signUp}>Sign Up.</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity>
+            <Text style={styles.signUp}>Sign Up.</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -59,8 +58,9 @@ export default function Login(props) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: moderateScale(250),
+  RR: {
+    marginTop: moderateScale(50),
+    alignItems: 'center',
   },
   emailHolder: {
     height: heightPercentageToDP(7),
@@ -88,14 +88,6 @@ const styles = StyleSheet.create({
   passHolder2: {
     fontSize: moderateScale(16),
   },
-  title: {
-    fontSize: moderateScale(25),
-    color: 'black',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingTop: moderateScale(50),
-    paddingBottom: moderateScale(30),
-  },
   signUpContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -112,6 +104,7 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(15),
     textAlign: 'center',
     color: COLORS.black,
+    fontWeight: '500',
     paddingTop: moderateScale(20),
     letterSpacing: moderateScale(0.5),
     paddingLeft: moderateScale(5),
