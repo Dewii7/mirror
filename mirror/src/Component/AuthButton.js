@@ -3,27 +3,29 @@ import {StyleSheet, View} from 'react-native';
 import {Button} from 'react-native-elements';
 import {widthPercentageToDP} from 'react-native-responsive-screen';
 import {moderateScale} from 'react-native-size-matters';
+import {COLORS} from '../Utils/Color';
 
 export default function AuthButton(props) {
   const styles = StyleSheet.create({
     textStyle: {
-      color: 'black',
+      color: COLORS.black,
       fontWeight: 'bold',
       fontFamily: 'Inter-Bold',
-      fontSize: moderateScale(15),
+      fontSize: moderateScale(18),
+      letterSpacing: moderateScale(0.5),
     },
 
     container: {
       backgroundColor: '#f3efa4',
-      borderRadius: widthPercentageToDP(2),
-      height: moderateScale(40),
+      // borderRadius: widthPercentageToDP(2),
+      height: moderateScale(42),
       alignItems: 'center',
     },
 
     fullContainer: {
       justifyContent: 'center',
-      width: widthPercentageToDP(50),
-      borderRadius: widthPercentageToDP(2),
+      width: widthPercentageToDP(94),
+      // borderRadius: widthPercentageToDP(2),
     },
   });
 
